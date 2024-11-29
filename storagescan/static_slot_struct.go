@@ -36,9 +36,7 @@ func (s StructValue) Field(fd string) interface{} {
 	reflect.ValueOf(filedValue).Elem().FieldByName("SlotIndex").Set(reflect.ValueOf(common.BigToHash(slotIndex)))
 	value := filedValue.Value(s.f)
 	reflect.ValueOf(filedValue).Elem().FieldByName("SlotIndex").Set(reflect.ValueOf(oldSlot))
-	// todo long string/bytes
 	return value
-
 }
 
 func (s StructValue) String() string {

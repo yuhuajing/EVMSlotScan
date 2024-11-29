@@ -41,8 +41,8 @@ func (s SolidityInt) Value(f GetValueStorageAtFunc) interface{} {
 	signBit := new(big.Int)
 	signBit.Rsh(vb, s.Length-1)
 	if signBit.Uint64() == 0 {
-		return vb.Uint64()
-
+		//return vb.Uint64()
+		return vb.String()
 	} else {
 		//负数的处理
 		// flip the bits
@@ -52,7 +52,8 @@ func (s SolidityInt) Value(f GetValueStorageAtFunc) interface{} {
 			r = append(r, ^b)
 		}
 		// convert back to big int
-		return -new(big.Int).SetBytes(r).Int64()
+		//return -new(big.Int).SetBytes(r).Int64()
+		return "-" + new(big.Int).SetBytes(r).String()
 	}
 }
 

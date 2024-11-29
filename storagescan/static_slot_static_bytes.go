@@ -5,7 +5,6 @@ import (
 	"math/big"
 )
 
-// todo [2][3]
 type SolidityBytes struct {
 	SlotIndex common.Hash
 
@@ -29,7 +28,6 @@ func (s SolidityBytes) Value(f GetValueStorageAtFunc) interface{} {
 	vb.And(vb, lengthOffset)
 
 	return string(common.TrimRightZeroes(vb.Bytes()))
-
 }
 
 func (s SolidityBytes) Len() uint {

@@ -34,7 +34,6 @@ func (s SolidityUint) Value(f GetValueStorageAtFunc) interface{} {
 	} else {
 		return vb.Uint64()
 	}
-
 }
 
 func (s SolidityUint) Len() uint {

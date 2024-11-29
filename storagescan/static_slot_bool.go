@@ -27,7 +27,6 @@ func (s SolidityBool) Value(f GetValueStorageAtFunc) interface{} {
 
 	vb.And(vb, lengthOffset)
 	return vb.Uint64() == 1
-
 }
 
 func (s SolidityBool) Len() uint {
