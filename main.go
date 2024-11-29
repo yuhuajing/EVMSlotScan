@@ -1,55 +1,3 @@
-# EVMSlotScan
-
-
-EVMSlotScan is a contract variable query tool on EVM chain (ETH BSC HECO...)
-Through the getStorageAt() function, it allows us to get the value of the variable according to the slot address, including the private variable,
-enjoy it!
-
-## Quick Start
-
-examples
-- Network: Sepolia Testnet Network
-
-- RPCNode: https://sepolia.drpc.org
-
-- Contract Address: 0x415DDB3F83779f9e0B99a17F223C382c118C6649
-
-generate storage_layout json strings  by solc compiler
-
-```shell 
-  
-solc --storage-layout --pretty-json -o $PWD/tempDirForSolc --overwrite xxx.sol
-
-```
-
-like this (incomplete):
-
-```json
-{
-  "storage": [
-    {
-      "astId": 5,
-      "contract": "storage_scan_examples.sol:StorageScan",
-      "label": "int1",
-      "offset": 0,
-      "slot": "0",
-      "type": "t_int8"
-    }
-  ],
-  "types": {
-    "t_uint8": {
-      "encoding": "inplace",
-      "label": "uint8",
-      "numberOfBytes": "1"
-    }
-  }
-}
-
-
-```
-
-get contract variable value
-```go
 package main
 
 import (
@@ -144,4 +92,3 @@ func main() {
 	mapping7ValueByKey := mapping7.(storagescan.MappingValueI).Keys(key)
 	log.Printf("'mappingValueByKey:%v\n", mapping7ValueByKey)
 }
-```
